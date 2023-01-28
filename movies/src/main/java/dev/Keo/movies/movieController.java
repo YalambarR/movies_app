@@ -3,7 +3,6 @@ package dev.Keo.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -26,9 +25,9 @@ public class movieController {
         return new ResponseEntity<List<movie>>(movieService.allMovies(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<movie>> getSingleMovie(@PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<movie>>(movieService.singleMovie(id), HttpStatus.OK);
+    @GetMapping("/{imdbId}")
+    public ResponseEntity<Optional<movie>> getSingleMovie(@PathVariable String imdbId) {
+        return new ResponseEntity<Optional<movie>>(movieService.singleMovie(imdbId), HttpStatus.OK);
     }
 
 }

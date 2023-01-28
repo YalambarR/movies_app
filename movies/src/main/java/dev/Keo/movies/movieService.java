@@ -3,7 +3,6 @@ package dev.Keo.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +17,8 @@ public class movieService {
         return MovieRepository.findAll();
     }
 
-    public Optional<movie> singleMovie(ObjectId id) {
-        return MovieRepository.findById(id);
+    public Optional<movie> singleMovie(String imdbId) {
+        return MovieRepository.findMovieByImdbId(imdbId);
     }
 
 }
